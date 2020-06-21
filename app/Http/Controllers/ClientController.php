@@ -52,7 +52,7 @@ class ClientController extends Controller
         $data = $request->all();
         $client = Client::create($data);
         if($client){
-         return redirect('clients');
+         return redirect('clients')->with('success', 'Client created successfully!');;
         }
     }
 
@@ -92,7 +92,7 @@ class ClientController extends Controller
         $data = $request->all();
         $client = Client::findOrFail($client->id)->update($data);
         if ($client){
-            return redirect()->back();
+            return redirect()->back()->with('info', 'Client Updated successfully!');;
         }
     }
 
